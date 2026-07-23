@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WayUp · Campus Pages</title>
+  <style>
+    :root { --ink:#1a1a1a; --muted:#6b6b6b; --bg:#faf9f5; --line:#e7e4dc; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; line-height:1.5; }
+    .wrap { max-width:960px; margin:0 auto; padding:64px 24px 80px; }
+    header { margin-bottom:44px; }
+    .brand { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+    h1 { font-size:34px; font-weight:700; margin:10px 0 8px; letter-spacing:-0.02em; }
+    header p { color:var(--muted); font-size:16px; max-width:56ch; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+    a.card { display:flex; flex-direction:column; justify-content:space-between;
+      min-height:132px; padding:18px 18px 16px; border-radius:14px; text-decoration:none;
+      color:#fff; position:relative; overflow:hidden; transition:transform .12s ease, box-shadow .12s ease;
+      box-shadow:0 1px 2px rgba(0,0,0,.06); }
+    a.card:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.16); }
+    .tag { font-size:12px; font-weight:700; letter-spacing:.08em; opacity:.85; }
+    .school { font-size:19px; font-weight:700; line-height:1.25; margin-top:8px; }
+    .mascot { font-size:13px; opacity:.85; margin-top:2px; }
+    .go { font-size:13px; font-weight:600; opacity:.9; margin-top:14px; }
+    footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
+      color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">WayUp</div>
+      <h1>Campus Pages</h1>
+      <p>Careers built for each campus. Select a school to open its page — each link can be shared directly with that school's career center.</p>
+    </header>
+    <div class="grid" id="grid"></div>
+    <footer>Hosted on GitHub Pages · one shareable link per campus.</footer>
+  </div>
+  <script>
+    const campuses = [
+      { file:"University-of-Arizona.html", tag:"UA",   school:"University of Arizona", mascot:"Wildcats",       color:"#AB0520" },
+      { file:"arizona-state.html",         tag:"ASU",  school:"Arizona State",        mascot:"Sun Devils",     color:"#8C1D40" },
+      { file:"georgia-tech.html",          tag:"GT",   school:"Georgia Tech",         mascot:"Yellow Jackets", color:"#003057" },
+      { file:"houston.html",               tag:"UH",   school:"University of Houston",mascot:"Cougars",        color:"#C8102E" },
+      { file:"indiana.html",               tag:"IU",   school:"Indiana University",   mascot:"Hoosiers",       color:"#990000" },
+      { file:"maryland.html",              tag:"UMD",  school:"Maryland",             mascot:"Terrapins",      color:"#E21833" },
+      { file:"michigan.html",              tag:"U-M",  school:"Michigan",             mascot:"Wolverines",     color:"#00274C" },
+      { file:"rutgers.html",               tag:"RU",   school:"Rutgers",              mascot:"Scarlet Knights",color:"#CC0033" },
+      { file:"texas-am.html",              tag:"TAMU", school:"Texas A&M",            mascot:"Aggies",         color:"#500000" },
+      { file:"texas-tech.html",            tag:"TTU",  school:"Texas Tech",           mascot:"Red Raiders",    color:"#CC0000" },
+      { file:"ucf.html",                   tag:"UCF",  school:"UCF",                  mascot:"Knights",        color:"#000000" },
+      { file:"uiuc.html",                  tag:"UIUC", school:"Illinois",             mascot:"Illini",         color:"#13294B" }
+    ].sort((a,b) => a.school.localeCompare(b.school));
+
+    const grid = document.getElementById("grid");
+    for (const c of campuses) {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = c.file;
+      a.style.background = c.color;
+      a.innerHTML =
+        '<div class="tag">' + c.tag + '</div>' +
+        '<div><div class="school">' + c.school + '</div>' +
+        '<div class="mascot">' + c.mascot + '</div></div>' +
+        '<div class="go">Open page &rarr;</div>';
+      grid.appendChild(a);
+    }
+  </script>
+</body>
+</html>
