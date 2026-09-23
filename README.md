@@ -12,6 +12,7 @@ HTML page that can be shared directly with that school's career center.
 | --- | --- |
 | University of Arizona | https://wayup-campus.github.io/Campus-Pages/University-of-Arizona.html |
 | Arizona State | https://wayup-campus.github.io/Campus-Pages/arizona-state.html |
+| Arkansas - Walton College | https://wayup-campus.github.io/Campus-Pages/Arkansas-Walton.html |
 | Georgia Tech | https://wayup-campus.github.io/Campus-Pages/georgia-tech.html |
 | University of Houston | https://wayup-campus.github.io/Campus-Pages/houston.html |
 | Indiana University | https://wayup-campus.github.io/Campus-Pages/indiana.html |
